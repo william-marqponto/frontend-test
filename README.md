@@ -11,10 +11,12 @@ Aqui vai uma lista de requisitos obrigatórios:
  - Deve-se utilizar as bibliotecas mencionadas acima
  - Ao final do projeto, abra um pull request para a branch main deste repositório. O PR deve seguir o seguinte padrão [Seu nome] - Teste frontend
 
-### Passos iniciais
+### Passos
+- Crie um fork do projeto
 - Clone o projeto
-- Crie uma branch com seu nome
+- Crie uma branch com seu nome antes de iniciar o desenvolvimento
 - Desenvolva :)
+- Crie um pull request seguindo o padrão descrito acima
 
 ### Critérios avaliativos e considerações:
 - Organização do projeto
