@@ -1,11 +1,13 @@
-import './App.css';
+import { Container } from './App.ts';
 
-function App() {
+import { Header } from './components/Header/Header.tsx';
+import { Filter } from './components/Filter/Filter.tsx';
+
+export function App() {
   return (
-    <>
-      <div>O projeto vai ter que acontecer</div>
-    </>
+    <Container>
+      <Header />
+      <Filter />
+    </Container>
   );
 }
-
-export default App;
