@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+interface HabitatProps {
+  name: string | null;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -11,7 +14,7 @@ export const Container = styled.div`
   padding: 0 112px;
 `;
 
-export const BoxColor = styled.div`
+export const Box = styled.div`
   margin: 16px;
 
   text-transform: capitalize;
@@ -21,49 +24,56 @@ export const BoxColor = styled.div`
     align-items: center;
     justify-content: center;
 
-    height: 80px;
-    min-width: 120px;
+    height: 200px;
+    min-width: 200px;
     border: 1px solid black;
     border-radius: 16px;
 
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
 
     background: rgba(47, 104, 178, 0.2);
 
     cursor: pointer;
   }
 
-  :hover {
-    background: ${props => props.color};
+  :hover, :active, :focus {
+    background: ${props => props.color || 'rgba(47, 104, 178, 0.4)'};
     color: ${props => props.color === 'black' ? 'white' : 'black'};
   }
 `;
 
-export const BoxType = styled.div`
+export const BoxHabitat = styled.div<HabitatProps>`
   margin: 16px;
 
   text-transform: capitalize;
 
   div {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 
-    height: 80px;
-    min-width: 120px;
+    height: 200px;
+    min-width: 200px;
     border: 1px solid black;
     border-radius: 16px;
+    padding-bottom: 16px;
 
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 2px 2px black;
 
-    background: rgba(47, 104, 178, 0.2);
+    background-image: url(${props => props.name});
+    background-color: rgba(47, 104, 178, 0.2);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     cursor: pointer;
   }
 
-  :hover {
-    background: rgba(47, 104, 178, 0.4);
+  :hover, :active, :focus {
+    opacity: 0.7;
   }
 `;

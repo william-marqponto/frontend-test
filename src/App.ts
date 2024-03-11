@@ -5,5 +5,5 @@ export const Container = styled.div`
   -webkit-font-smoothing: antialiased;
 
   background-color: rgba(47, 104, 178, 0.2);
-  height: 100vh;
+  min-height: 100vh;
 `;
