@@ -9,6 +9,8 @@ export const Container = styled.div`
   padding: 32px 16px;
 
   img {
-    height: 125px;
+    max-height: 125px;
+    max-width: 340px;
+    width: 100%;
   }
 `;
