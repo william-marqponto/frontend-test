@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Container } from './App.ts';
 
@@ -10,41 +10,45 @@ export function App() {
   const [data, setData] = useState<[]>([]);
   const [attribute, setAttributey] = useState('');
 
-  function handleSearchName() {
+  const handleSearchName = async () => {
     // 1302 tipos
-    fetch('https://pokeapi.co/api/v2/pokemon/')
-      .then((response) => response.json())
-      .then((data) => setData(data.results));
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0');
+    const pokemon = await response.json();
 
+    setData(pokemon.results);
     setAttributey('pokemon');
-  }
+  };
 
-  function handleSearchColor() {
+  const handleSearchColor = async () => {
     // 10 tipos
-    fetch('https://pokeapi.co/api/v2/pokemon-color/')
-      .then((response) => response.json())
-      .then((data) => setData(data.results));
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon-color/');
+    const color = await response.json();
 
+    setData(color.results);
     setAttributey('color');
-  }
+  };
 
-  function handleSearchType() {
+  const handleSearchType = async () => {
     // 20 tipos
-    fetch('https://pokeapi.co/api/v2/type/')
-      .then((response) => response.json())
-      .then((data) => setData(data.results));
+    const response = await fetch('https://pokeapi.co/api/v2/type/');
+    const type = await response.json();
 
+    setData(type.results);
     setAttributey('type');
-  }
+  };
 
-  function handleSearchHabitat() {
+  const handleSearchHabitat = async () => {
     // 9 tipos
-    fetch('https://pokeapi.co/api/v2/pokemon-habitat/')
-      .then((response) => response.json())
-      .then((data) => setData(data.results));
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon-habitat/');
+    const habitat = await response.json();
 
+    setData(habitat.results);
     setAttributey('habitat');
-  }
+  };
+
+  useEffect(() => {
+    data.length === 0 && handleSearchName();
+  });
 
   return (
     <Container>
