@@ -1,0 +1,15 @@
+<svg width="1000" height="1000" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+ <g>
+  <title>Layer 1</title>
+  <rect y="0" x="0" id="svg_1" fill="#75D0C1" height="1000" width="1000"/>
+  <g id="svg_8">
+   <path id="svg_2" fill="#fff" d="m628.64018,282.41917l1.575,138.3502l-120.67,57.927l-1.488,-130.629l120.583,-65.6482z" clip-rule="evenodd" fill-rule="evenodd"/>
+   <path id="svg_3" fill="#fff" d="m749.60518,500.42437l-119.455,68.327l-119.526,-68.435l119.464,-62.752l119.517,62.86z" clip-rule="evenodd" fill-rule="evenodd"/>
+   <path id="svg_4" fill="#fff" d="m489.37618,500.42437l-119.455,68.327l-119.52639,-68.435l119.46439,-62.752l119.517,62.86z" clip-rule="evenodd" fill-rule="evenodd"/>
+   <path id="svg_5" fill="#fff" d="m368.57918,281.85267l123.986,61.4057l-3.17,133.816l-117.066,-57.978l-3.75,-137.2437z" clip-rule="evenodd" fill-rule="evenodd"/>
+   <path id="svg_6" fill="#fff" d="m632.01418,716.90237l-123.986,-61.406l3.17,-133.817l117.066,57.979l3.75,137.244z" clip-rule="evenodd" fill-rule="evenodd"/>
+   <path id="svg_7" fill="#fff" d="m372.86118,718.14737l-1.576,-138.35l120.671,-57.927l1.488,130.628l-120.583,65.649z" clip-rule="evenodd" fill-rule="evenodd"/>
+  </g>
+ </g>
+</svg>

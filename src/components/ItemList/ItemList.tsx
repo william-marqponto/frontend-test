@@ -1,46 +1,13 @@
-import { Container, Box, BoxHabitat } from './ItemList.ts';
+import { imageHabitat } from '../../utils/ImageHabitat.tsx';
+import { imageType } from '../../utils/ImageType.tsx';
 
-import cave from '../../assets/cave.png';
-import forest from '../../assets/forest.png';
-import grassland from '../../assets/grassland.png';
-import mountain from '../../assets/mountain.png';
-import rare from '../../assets/rare.png';
-import roughTerrain from '../../assets/rough-terrain.png';
-import sea from '../../assets/sea.png';
-import urban from '../../assets/urban.png';
-import watersEdge from '../../assets/waters-edge.png';
-
+import { Container, Box, BoxType, BoxHabitat } from './ItemList.ts';
 interface ItemListProps {
   data: [];
   attribute: string;
 }
 
 export function ItemList({ data, attribute }: ItemListProps) {
-  function imageNameProp(name: string) {
-    switch (name) {
-      case 'cave':
-        return cave;
-      case 'forest':
-        return forest;
-      case 'grassland':
-        return grassland;
-      case 'mountain':
-        return mountain;
-      case 'rare':
-        return rare;
-      case 'rough-terrain':
-        return roughTerrain;
-      case 'sea':
-        return sea;
-      case 'urban':
-        return urban;
-      case 'waters-edge':
-        return watersEdge;
-      default:
-        return null;
-    }
-  }
-
   return (
     <Container>
       {attribute === 'color' &&
@@ -55,16 +22,16 @@ export function ItemList({ data, attribute }: ItemListProps) {
       {attribute === 'type' &&
         data.map((item: { name: string }) => {
           return (
-            <Box key={item.name}>
+            <BoxType key={item.name} name={imageType(item.name)}>
               <div>{item.name}</div>
-            </Box>
+            </BoxType>
           );
         })}
 
       {attribute === 'habitat' &&
         data.map((item: { name: string }) => {
           return (
-            <BoxHabitat key={item.name} name={imageNameProp(item.name)}>
+            <BoxHabitat key={item.name} name={imageHabitat(item.name)}>
               <div>{item.name}</div>
             </BoxHabitat>
           );
