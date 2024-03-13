@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Container } from './App.ts';
 
@@ -14,33 +14,67 @@ import { ItemList } from './components/ItemList/ItemList.tsx';
 export function App() {
   const [data, setData] = useState<[]>([]);
   const [attribute, setAttribute] = useState('');
+  const [showBox, setShowBox] = useState(false);
+  // const [pokemon, setPokemon] = useState<[]>([]);
 
   const urlAttibute = 'pokemon';
 
-  const handleSearch = async (urlAttibute: string) => {
+  // const toogleShowBox = () => {
+  //   setShowBox(!showBox);
+  // };
+
+  const handleSearch = useCallback(async (urlAttibute: string) => {
     const response = await fetch(`https://pokeapi.co/api/v2/${urlAttibute}/`);
     const result = await response.json();
 
     setData(result.results);
     setAttribute(urlAttibute);
-  };
+    setShowBox(true);
+  }, []);
+
+  // const handleListPokemon = useCallback(() => {
+  //   data.forEach(async (item: { name: string }) => {
+  //     const response = await fetch(
+  //       `https://pokeapi.co/api/v2/pokemon/${item.name}/`
+  //     );
+  //     const result = await response.json();
+  //     setPokemon(result);
+  //     console.log(pokemon);
+  //     return pokemon;
+  //   });
+  // }, [data, pokemon]);
 
   useEffect(() => {
     data.length === 0 && handleSearch(urlAttibute);
-  }, [data.length]);
+    // handleListPokemon;
+  }, [data.length, handleSearch]);
 
   return (
     <Container>
       <Header />
 
       <Filter
-        handleSearchName={() => handleSearch('pokemon')}
-        handleSearchColor={() => handleSearch('pokemon-color')}
-        handleSearchType={() => handleSearch('type')}
-        handleSearchHabitat={() => handleSearch('pokemon-habitat')}
+        handleSearchName={() => {
+          handleSearch('pokemon'), setShowBox(true);
+        }}
+        handleSearchColor={() => {
+          handleSearch('pokemon-color'), setShowBox(true);
+        }}
+        handleSearchType={() => {
+          handleSearch('type'), setShowBox(true);
+        }}
+        handleSearchHabitat={() => {
+          handleSearch('pokemon-habitat');
+          setShowBox(true);
+        }}
       />
 
-      <ItemList data={data} attribute={attribute} />
+      <ItemList
+        data={data}
+        attribute={attribute}
+        showBox={showBox}
+        setShowBox={() => setShowBox(false)}
+      />
     </Container>
   );
 }

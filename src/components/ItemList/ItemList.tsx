@@ -7,9 +7,16 @@ import { Container } from './ItemList.ts';
 interface ItemListProps {
   data: [];
   attribute: string;
+  showBox: boolean;
+  setShowBox: (arg0: boolean) => void;
 }
 
-export function ItemList({ data, attribute }: ItemListProps) {
+export function ItemList({
+  data,
+  attribute,
+  showBox,
+  setShowBox,
+}: ItemListProps) {
   return (
     <Container>
       {attribute === 'pokemon' &&
@@ -17,22 +24,29 @@ export function ItemList({ data, attribute }: ItemListProps) {
           return <BoxPokemon name={item.name} key={item.name} />;
         })}
 
-      {attribute === 'pokemon-color' &&
-        data.map((item: { name: string }) => {
-          return (
-            <BoxColor name={item.name} color={item.name} key={item.name} />
-          );
-        })}
+      {attribute === 'pokemon-color' && (
+        <BoxColor
+          data={data}
+          showBox={showBox}
+          setShowBox={() => setShowBox(false)}
+        />
+      )}
 
-      {attribute === 'type' &&
-        data.map((item: { name: string }) => {
-          return <BoxType name={item.name} key={item.name} />;
-        })}
+      {attribute === 'type' && (
+        <BoxType
+          data={data}
+          showBox={showBox}
+          setShowBox={() => setShowBox(false)}
+        />
+      )}
 
-      {attribute === 'pokemon-habitat' &&
-        data.map((item: { name: string }) => {
-          return <BoxHabitat name={item.name} key={item.name} />;
-        })}
+      {attribute === 'pokemon-habitat' && (
+        <BoxHabitat
+          data={data}
+          showBox={showBox}
+          setShowBox={() => setShowBox(false)}
+        />
+      )}
     </Container>
   );
 }
