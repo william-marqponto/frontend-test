@@ -14,22 +14,24 @@ export function ItemList({ data, attribute }: ItemListProps) {
     <Container>
       {attribute === 'pokemon' &&
         data.map((item: { name: string }) => {
-          return <BoxPokemon name={item.name} />;
+          return <BoxPokemon name={item.name} key={item.name} />;
         })}
 
-      {attribute === 'color' &&
+      {attribute === 'pokemon-color' &&
         data.map((item: { name: string }) => {
-          return <BoxColor name={item.name} color={item.name} />;
+          return (
+            <BoxColor name={item.name} color={item.name} key={item.name} />
+          );
         })}
 
       {attribute === 'type' &&
         data.map((item: { name: string }) => {
-          return <BoxType name={item.name} />;
+          return <BoxType name={item.name} key={item.name} />;
         })}
 
-      {attribute === 'habitat' &&
+      {attribute === 'pokemon-habitat' &&
         data.map((item: { name: string }) => {
-          return <BoxHabitat name={item.name} />;
+          return <BoxHabitat name={item.name} key={item.name} />;
         })}
     </Container>
   );

@@ -6,59 +6,38 @@ import { Header } from './components/Header/Header.tsx';
 import { Filter } from './components/Filter/Filter.tsx';
 import { ItemList } from './components/ItemList/ItemList.tsx';
 
+// pokemon = 1302
+// color = 10
+// type = 20
+// habitat = 9
+
 export function App() {
   const [data, setData] = useState<[]>([]);
-  const [attribute, setAttributey] = useState('');
+  const [attribute, setAttribute] = useState('');
 
-  const handleSearchName = async () => {
-    // 1302 tipos
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0');
-    const pokemon = await response.json();
+  const urlAttibute = 'pokemon';
 
-    setData(pokemon.results);
-    setAttributey('pokemon');
-  };
+  const handleSearch = async (urlAttibute: string) => {
+    const response = await fetch(`https://pokeapi.co/api/v2/${urlAttibute}/`);
+    const result = await response.json();
 
-  const handleSearchColor = async () => {
-    // 10 tipos
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon-color/');
-    const color = await response.json();
-
-    setData(color.results);
-    setAttributey('color');
-  };
-
-  const handleSearchType = async () => {
-    // 20 tipos
-    const response = await fetch('https://pokeapi.co/api/v2/type/');
-    const type = await response.json();
-
-    setData(type.results);
-    setAttributey('type');
-  };
-
-  const handleSearchHabitat = async () => {
-    // 9 tipos
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon-habitat/');
-    const habitat = await response.json();
-
-    setData(habitat.results);
-    setAttributey('habitat');
+    setData(result.results);
+    setAttribute(urlAttibute);
   };
 
   useEffect(() => {
-    data.length === 0 && handleSearchName();
-  });
+    data.length === 0 && handleSearch(urlAttibute);
+  }, [data.length]);
 
   return (
     <Container>
       <Header />
 
       <Filter
-        handleSearchName={handleSearchName}
-        handleSearchColor={handleSearchColor}
-        handleSearchType={handleSearchType}
-        handleSearchHabitat={handleSearchHabitat}
+        handleSearchName={() => handleSearch('pokemon')}
+        handleSearchColor={() => handleSearch('pokemon-color')}
+        handleSearchType={() => handleSearch('type')}
+        handleSearchHabitat={() => handleSearch('pokemon-habitat')}
       />
 
       <ItemList data={data} attribute={attribute} />

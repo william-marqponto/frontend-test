@@ -1,11 +1,11 @@
+import { Container, Title, FilterContainer, Button } from './Filter.ts';
+
 interface FilterProps {
   handleSearchName: () => void;
   handleSearchColor: () => void;
   handleSearchType: () => void;
   handleSearchHabitat: () => void;
 }
-
-import { Container, Title, FilterContainer, Button } from './Filter.ts';
 
 export function Filter({
   handleSearchName,
