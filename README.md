@@ -1,63 +1,44 @@
-# Bem vindo!
+# Sobre o projeto
 
-Este é o repositório do teste de frontend para a MarQ :clock12:. Você está preparado? :rocket::rocket::rocket:
+Este projeto foi desenvolvido para o processo seletivo da empresa MarQ, e consiste em uma espécie de pokedex.
 
-## Descrição
+## Explicação do uso do projeto
 
-O teste consiste em avaliar suas capacidades técnicas e o seu processo ao desenvolver uma aplicação dado um prazo x;
-Para isto, você deverá usar a [API pública de pokémon](https://pokeapi.co) e a [biblioteca de gráficos Echarts](https://echarts.apache.org/en/index.html);
-Você pode usar sua criatividade para nos mostrar o que você quiser utilizando as bibliotecas acima(mas lembre-se do prazo especificado durante a entrevista);
+O objetivo da aplicação é listas os pokémons cadastrados na API e mostrar suas informações.
 
-Aqui vai uma lista de requisitos obrigatórios:
+## Iniciando a aplicação
 
-- O projeto deve ser feito em React (javascript ou typescript, fica à seu critério)
-- Deve-se utilizar as bibliotecas mencionadas acima
-- Ao final do projeto, abra um pull request para a branch main deste repositório. O PR deve seguir o seguinte padrão [Seu nome] - Teste frontend
+As instruções abaixo vão lhe permitir obter uma cópia do projeto e rodar a aplicação localmente para desenvolvimento e testes.
 
-### Passos
+### Pre-requisitos
 
-- Crie um fork do projeto
-- Clone o projeto
-- Crie uma branch com seu nome antes de iniciar o desenvolvimento
-- Desenvolva :)
-- Crie um pull request seguindo o padrão descrito acima
+Para rodar a aplicação, você precisa ter o Node.js instalado na sua máquina.
 
-### Critérios avaliativos e considerações:
+### Instalação
 
-- Organização do projeto
-- Legibilidade do código
-- Capacidade de utilizar a documentação da API e da biblioteca utilizada
-- Não se esqueça de abrir um PR seguindo a regra e manter seus commits curtos
+Para acessar o projeto, basta clonar o repositório ou realizar o download dos arquivos do projeto.
 
----
+Após clonar o repositório, acesse a pasta do projeto e instale as dependências utilizando o seguinte comando no seu terminal:
 
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
+```sh
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Após instalar as dependências, utilize o seguinte comando no seu terminal para iniciar a aplicação:
+
+```sh
+npm run dev
+```
+
+Com isso, a aplicação estará rodando em <code>http://localhost:5173</code>. Para acessar a aplicação, basta acessar esse endereço no seu navegador.
+
+## Tecnologias utilizadas
+
+- <b>ReactJS:</b> Biblioteca de JavaScript para construção de interfaces.
+- <b>TypeScript:</b> Superset de JavaScript que adiciona tipagem estática ao código.
+- <b>Vite:</b> Build tool para aplicações web.
+- <b>Radix UI:</b> Biblioteca de componentes web sem estilização própria.
+- <b>Lucide React:</b> Biblioteca de ícones.
+- <b>styled-components:</b> Biblioteca que permite utilizar CSS in JS.
+- <b>Echarts:</b> Biblioteca de gráficos.
+- <b>PokéAPI:</b> API pública de pokémon.
