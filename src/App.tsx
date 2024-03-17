@@ -1,80 +1,71 @@
-import { useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
-import { Container } from './App.ts';
+import { Container, ContainerFilter, Title, Form } from './App.ts';
 
 import { Header } from './components/Header/Header.tsx';
-import { Filter } from './components/Filter/Filter.tsx';
 import { ItemList } from './components/ItemList/ItemList.tsx';
 
+import { Pokemon } from './types.tsx';
+
 // pokemon = 1302
-// color = 10
-// type = 20
-// habitat = 9
 
 export function App() {
-  const [data, setData] = useState<[]>([]);
-  const [attribute, setAttribute] = useState('');
-  const [showBox, setShowBox] = useState(false);
-  // const [pokemon, setPokemon] = useState<[]>([]);
+  const [data, setData] = useState<Pokemon[]>(() => {
+    const data: Pokemon[] = [];
 
-  const urlAttibute = 'pokemon';
+    if (data.length !== 0) {
+      return data;
+    }
+    return [];
+  });
+  const [search, setSearch] = useState('');
 
-  // const toogleShowBox = () => {
-  //   setShowBox(!showBox);
-  // };
+  const filteredPokemon: Pokemon[] =
+    search !== ''
+      ? data.filter((item: { name: string }) =>
+          item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        )
+      : data;
 
-  const handleSearch = useCallback(async (urlAttibute: string) => {
-    const response = await fetch(`https://pokeapi.co/api/v2/${urlAttibute}/`);
+  const handleSearch = async (event: ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
     const result = await response.json();
 
     setData(result.results);
-    setAttribute(urlAttibute);
-    setShowBox(true);
+    setSearch(query);
+  };
+
+  const handleList = useCallback(async () => {
+    const response = await fetch(
+      'https://pokeapi.co/api/v2/pokemon/?limit=5000&offset=0'
+    );
+    const result = await response.json();
+
+    setData(result.results);
   }, []);
 
-  // const handleListPokemon = useCallback(() => {
-  //   data.forEach(async (item: { name: string }) => {
-  //     const response = await fetch(
-  //       `https://pokeapi.co/api/v2/pokemon/${item.name}/`
-  //     );
-  //     const result = await response.json();
-  //     setPokemon(result);
-  //     console.log(pokemon);
-  //     return pokemon;
-  //   });
-  // }, [data, pokemon]);
-
   useEffect(() => {
-    data.length === 0 && handleSearch(urlAttibute);
-    // handleListPokemon;
-  }, [data.length, handleSearch]);
+    handleList();
+  }, [data.length, handleList]);
 
   return (
     <Container>
       <Header />
+      <ContainerFilter>
+        <Title>Find your Pokémon</Title>
 
-      <Filter
-        handleSearchName={() => {
-          handleSearch('pokemon'), setShowBox(true);
-        }}
-        handleSearchColor={() => {
-          handleSearch('pokemon-color'), setShowBox(true);
-        }}
-        handleSearchType={() => {
-          handleSearch('type'), setShowBox(true);
-        }}
-        handleSearchHabitat={() => {
-          handleSearch('pokemon-habitat');
-          setShowBox(true);
-        }}
-      />
+        <Form>
+          <input
+            type='text'
+            placeholder='I want a specific Pokémon...'
+            onChange={handleSearch}
+          />
+        </Form>
+      </ContainerFilter>
 
-      <ItemList
-        data={data}
-        attribute={attribute}
-        showBox={showBox}
-        setShowBox={() => setShowBox(false)}
-      />
+      <ItemList data={filteredPokemon} />
     </Container>
   );
 }

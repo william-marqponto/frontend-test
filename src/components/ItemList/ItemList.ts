@@ -8,5 +8,9 @@ export const Container = styled.div`
   align-content: center;
   align-items: center;
   
-  padding: 0 220px 50px;
+  padding: 0 100px 50px;
+
+  @media (max-width: 1280px) {
+    padding: 0 50px 50px;
+  }
 `;
