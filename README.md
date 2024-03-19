@@ -32,6 +32,9 @@ npm run dev
 
 Com isso, a aplicação estará rodando em <code>http://localhost:5173</code>. Para acessar a aplicação, basta acessar esse endereço no seu navegador.
 
+## Acessando o projeto em um servidor
+Para visualizar o projeto rodando em um servidor da [`Vercel`](https://vercel.com/), acesse: [frontend-test-marqponto.vercel.app](https://frontend-test-marqponto.vercel.app/)
+
 ## Tecnologias utilizadas
 
 - <b>ReactJS:</b> Biblioteca de JavaScript para construção de interfaces.
