@@ -82,33 +82,43 @@ export function PokemonDialog({ name }: PokemonDialogProps) {
             {data.name.replace(/[-]/g, ' ')}
           </DialogTitle>
           <div key={data.name}>
-            <div className='PokemonImage'>
-              <img
-                src={data.sprites.other['official-artwork'].front_default}
-                alt={data.name.replace(/[-]/g, ' ')}
-              />
+            <div className='PokemonImageInfo'>
+              <div className='PokemonImage'>
+                <img
+                  src={
+                    data.sprites.other['official-artwork'].front_default
+                      ? data.sprites.other['official-artwork'].front_default
+                      : 'src/assets/image-null.png'
+                  }
+                  alt={data.name.replace(/[-]/g, ' ')}
+                />
+              </div>
               <div className='PokemonInfo'>
                 <div>
-                  <b>Height:</b> {data.height / 10}m
+                  <div className='Info'>
+                    <b>Height:</b> {data.height / 10}m
+                  </div>
+                  <div className='Info'>
+                    <b>Weight:</b> {data.weight / 10}kg
+                  </div>
                 </div>
                 <div>
-                  <b>Weight:</b> {data.weight / 10}kg
-                </div>
-                <div className='PokemonListInfo'>
-                  <b>Abilities:</b>
-                  <ul>
-                    {data.abilities.map((item) => (
-                      <li>{item.ability.name.replace(/[-]/g, ' ')}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className='PokemonListInfo'>
-                  <b>Types:</b>
-                  <ul>
-                    {data.types.map((item) => (
-                      <li>{item.type.name}</li>
-                    ))}
-                  </ul>
+                  <div className='PokemonListInfo Info'>
+                    <b>Abilities:</b>
+                    <ul>
+                      {data.abilities.map((item) => (
+                        <li>{item.ability.name.replace(/[-]/g, ' ')}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className='PokemonListInfo Info'>
+                    <b>Types:</b>
+                    <ul>
+                      {data.types.map((item) => (
+                        <li>{item.type.name}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
