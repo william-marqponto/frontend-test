@@ -88,7 +88,7 @@ export function PokemonDialog({ name }: PokemonDialogProps) {
                   src={
                     data.sprites.other['official-artwork'].front_default
                       ? data.sprites.other['official-artwork'].front_default
-                      : 'src/assets/image-null.png'
+                      : '/image-null.png'
                   }
                   alt={data.name.replace(/[-]/g, ' ')}
                 />
