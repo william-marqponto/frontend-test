@@ -1,0 +1,163 @@
+.DialogTrigger {
+  background: transparent;
+  border: none;
+}
+
+.Box {
+  margin: 16px;
+
+  text-transform: capitalize;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 80px;
+    min-width: 200px;
+    width: 200px;
+    border: 1px solid #000;
+    border-radius: 16px;
+    padding: 16px;
+
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    word-break: break-word;
+
+    background-color: rgba(255, 205, 55, 0.4);
+
+    cursor: pointer;
+  }
+
+  :hover, :active, :focus {
+    opacity: 0.7;
+  }
+}
+
+.DialogOverlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  background-color: #ffffff;
+  border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 800px;
+  max-height: 90vh;
+  padding: 25px;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent:focus {
+  outline: none;
+}
+
+.DialogTitle {
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.PokemonImage {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 20px;
+
+  img {
+    width: 400px;
+  }
+}
+
+.PokemonInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  margin: 0 20px;
+  text-transform: capitalize;
+
+  div {
+    margin: 10px 0;
+  }
+}
+
+.PokemonListInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  li {
+    background-color: rgba(47, 104, 178, 0.7);
+    border-radius: 4px;
+    padding: 0 10px;
+    margin: 3px 0;
+  }
+}
+
+.PokemonStatistic {
+  margin: 0 20px;
+  border: 1px solid black;
+}
+
+.IconButton {
+  font-family: inherit;
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(47, 104, 178, 0.4);
+  color: #000;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.IconButton:hover, .IconButton:focus {
+  background-color: rgba(47, 104, 178, 0.7);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

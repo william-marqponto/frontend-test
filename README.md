@@ -1,25 +1,47 @@
-# Bem vindo!
-Este é o repositório do teste de frontend para a MarQ :clock12:. Você está preparado? :rocket::rocket::rocket:
+# Sobre o projeto
 
-## Descrição
-O teste consiste em avaliar suas capacidades técnicas e o seu processo ao desenvolver uma aplicação dado um prazo x;
-Para isto, você deverá usar a [API pública de pokémon](https://pokeapi.co) e a [biblioteca de gráficos Echarts](https://echarts.apache.org/en/index.html);
-Você pode usar sua criatividade para nos mostrar o que você quiser utilizando as bibliotecas acima(mas lembre-se do prazo especificado durante a entrevista);
+Este projeto foi desenvolvido para o processo seletivo da empresa MarQ, e consiste em uma espécie de pokedex.
 
-Aqui vai uma lista de requisitos obrigatórios:
- - O projeto deve ser feito em React (javascript ou typescript, fica à seu critério)
- - Deve-se utilizar as bibliotecas mencionadas acima
- - Ao final do projeto, abra um pull request para a branch main deste repositório. O PR deve seguir o seguinte padrão [Seu nome] - Teste frontend
+## Explicação do uso do projeto
 
-### Passos
-- Crie um fork do projeto
-- Clone o projeto
-- Crie uma branch com seu nome antes de iniciar o desenvolvimento
-- Desenvolva :)
-- Crie um pull request seguindo o padrão descrito acima
+O objetivo da aplicação é listas os pokémons cadastrados na API e mostrar suas informações.
 
-### Critérios avaliativos e considerações:
-- Organização do projeto
-- Legibilidade do código
-- Capacidade de utilizar a documentação da API e da biblioteca utilizada
-- Não se esqueça de abrir um PR seguindo a regra e manter seus commits curtos
+## Iniciando a aplicação
+
+As instruções abaixo vão lhe permitir obter uma cópia do projeto e rodar a aplicação localmente para desenvolvimento e testes.
+
+### Pre-requisitos
+
+Para rodar a aplicação, você precisa ter o Node.js instalado na sua máquina.
+
+### Instalação
+
+Para acessar o projeto, basta clonar o repositório ou realizar o download dos arquivos do projeto.
+
+Após clonar o repositório, acesse a pasta do projeto e instale as dependências utilizando o seguinte comando no seu terminal:
+
+```sh
+npm install
+```
+
+Após instalar as dependências, utilize o seguinte comando no seu terminal para iniciar a aplicação:
+
+```sh
+npm run dev
+```
+
+Com isso, a aplicação estará rodando em <code>http://localhost:5173</code>. Para acessar a aplicação, basta acessar esse endereço no seu navegador.
+
+## Acessando o projeto em um servidor
+Para visualizar o projeto rodando em um servidor da [`Vercel`](https://vercel.com/), acesse: [frontend-test-marqponto.vercel.app](https://frontend-test-marqponto.vercel.app/)
+
+## Tecnologias utilizadas
+
+- <b>ReactJS:</b> Biblioteca de JavaScript para construção de interfaces.
+- <b>TypeScript:</b> Superset de JavaScript que adiciona tipagem estática ao código.
+- <b>Vite:</b> Build tool para aplicações web.
+- <b>Radix UI:</b> Biblioteca de componentes web sem estilização própria.
+- <b>Lucide React:</b> Biblioteca de ícones.
+- <b>styled-components:</b> Biblioteca que permite utilizar CSS in JS.
+- <b>Echarts:</b> Biblioteca de gráficos.
+- <b>PokéAPI:</b> API pública de pokémon.
